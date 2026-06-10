@@ -7,12 +7,15 @@ var taskInput = document.querySelector("#newTask");
 var createButton = document.querySelector("#createTask");
 var writeTask = document.querySelector("#taskWriter");
 var subBtn = document.querySelector("#submit");
-
+const addTaskBtn = document.getElementById("addTaskBtn");
 
 // Load tasks on page load
 window.onload = () => {
   tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  renderBoard(tasks);
+  if (taskButton) {
+    renderBoard(tasks);
+  }
+  
 };
 
 function loadTasks() {
@@ -162,16 +165,20 @@ function renderBoard(taskList) {
 }
 
 // --- Add Task Button ---
-document.getElementById("addTaskBtn").addEventListener("click", () => {
-  const input = document.getElementById("taskInput");
-  const text = input.value.trim();
 
-  if (text === "") return;
+if(addTaskBtn) {
+  addTaskBtn.addEventListener("click", () => {
+    const input = document.getElementById("taskInput");
+    const text = input.value.trim();
 
-  addTask(text);
-  renderBoard(tasks);
-  input.value = "";
-});
+    if (text === "") return;
+
+    addTask(text);
+    renderBoard(tasks);
+    input.value = "";
+  });
+}
+
 
 function clearAllTasks() {
   tasks = [];
@@ -203,22 +210,52 @@ navMenu.addEventListener("mouseleave", hideMenu);
 // --- Task Menu Toggle ---
 const createTaskBtn = document.getElementById("createTaskBtn");
 const taskMenu = document.getElementById("task-menu");
-const addTaskBtn = document.getElementById("addTaskBtn");
-const taskInput = document.getElementById("taskInput");
+const newInput = document.getElementById("taskInput");
 
 function toggleTaskMenu() {
   taskMenu.classList.toggle("visible");
 }
 
-createTaskBtn.addEventListener("click", toggleTaskMenu);
+if (createTaskBtn) {
+  createTaskBtn.addEventListener("click", toggleTaskMenu);
+}
 
-addTaskBtn.addEventListener("click", () => {
-  const text = taskInput.value.trim();
-  if (text === "") return;
 
-  addTask(text);
-  renderBoard(tasks);
-  taskInput.value = "";
+if (addTaskBtn) {
+  addTaskBtn.addEventListener("click", () => {
+    const text = newInput.value.trim();
+    if (text === "") return;
 
-  taskMenu.classList.remove("visible");
+    addTask(text);
+    renderBoard(tasks);
+    newInput.value = "";
+
+    taskMenu.classList.remove("visible");
+  });
+}
+
+//page navigation
+
+document.getElementById("workbudz-logo").addEventListener("click", function() {
+  window.location.href = "index.html";
+});
+
+document.getElementById("taskNav").addEventListener("click", function() {
+  window.location.href = "task-board.html";
+});
+
+document.getElementById("wrNav").addEventListener("click", function() {
+  window.location.href = "work-room.html";
+});
+
+document.getElementById("shopNav").addEventListener("click", function() {
+  window.location.href = "shop.html";
+});
+
+document.getElementById("collNav").addEventListener("click", function() {
+  window.location.href = "plushie-room.html";
+});
+
+document.getElementById("settNav").addEventListener("click", function() {
+  window.location.href = "settings.html";
 });

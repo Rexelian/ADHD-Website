@@ -17,6 +17,10 @@ html {
   line-height: 1.4;
 }
 
+html, body {
+  height: 100%;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -85,12 +89,14 @@ textarea {
    ========================================================================== */
 
 #nav-menu {
-  background-color: #444444;
+  background-color: #3c3c3c;
   position: absolute;
-  z-index: 1;
-  left: 220px;
+  z-index: 2;
+  /*left: 220px;*/
+  left: 50%;
+  transform: translateX(-50%);
   top: 100%;
-  min-width: 50vw;
+  width: 100%;
   height: 70px;
   display: flex;
   justify-content: start;
@@ -98,6 +104,8 @@ textarea {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+  width: 100%;
+  padding-top: 10px;
 }
 
 
@@ -108,10 +116,28 @@ textarea {
   gap: 40px;
 }
 
-#nav-menu li a{
+#nav-menu button {
+  border-style: none;
+  background: none;
+  flex: 1;
+  margin: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+
+#nav-menu button:hover {
+  background-color: rgb(84, 84, 84);
+}
+
+#nav-menu button:active {
+  background-color: rgb(146, 146, 146);
+}
+
+/*#nav-menu li a{
   color: #C3F7FF !important;
   text-decoration: none !important;
-}
+}*/
 
 #nav-menu.visible {
   opacity: 1;
@@ -208,7 +234,10 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    padding: 20px;
 }
+
+
 
 #main-1 ul {
     display: flex;
@@ -225,24 +254,52 @@ main {
 .sidebar-1 {
     background-color: #b3d4fc;
     color: #555;
-    width: 20% !important;
-    height: 100%;
+    flex: 0 0 200px;
     padding: 20px;
 }
 
 .sidebar-1 ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* optional */
 }
 
-.sidebar-1 li {
+@media only screen and (max-width: 600px) {
+  #main-1 {
+    flex-direction: column;
+  }
+
+  .sidebar-1 ul {
+    flex-direction: row;
+  }
+
+  #nav-menu {
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  #nav-menu ul {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.sidebar-1 button {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: none;
     background-color: #1B7691;
     color: #FCF1EF;
     height: 50px;
     width: 150px;
     border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .content-1 {
@@ -277,11 +334,25 @@ main {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
 #main {
     display: flex;
     flex-direction: row;
     height: 100%;
     
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .sidebar-alx {

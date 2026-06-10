@@ -10,33 +10,35 @@
     rel="stylesheet"/>
 </head>
 <body>
-    <div class="container-1">
-        <div id="topbar-1">
+    <div class="main-wrapper">
+        <div id="topbar">
             <header>
-                <h1>WorkBudz</h1>
+                <img src="img/workbudz-logo.svg" alt="" id="workbudz-logo">
+                <h1>WorkBudz</h1>  
             </header>
-            <nav class="nav-1">
-                <!--change these to buttons-->
+            <div id="nav-menu">
                 <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="task-board.html">task board</a></li>
-                    <li><a href="work-room.html">work room</a></li>
-                    <li><a href="shop.html">shop</a></li>
-                    <li><a href="plushie-room.html">plushie room</a></li>
+                    <li><button id="taskNav"><img src="img/tasks_icon.svg" height="40vh"></button></li>
+                    <li><button id="wrNav"><img src="img/workroom_icon.svg" height="40vh"></button></li>
+                    <li><button id="shopNav"><img src="img/shop_icon.svg" height="40vh"></button></li>
+                    <li><button id="collNav"><img src="img/collection_icon.svg" height="40vh"></button></li>
+                    <li><button id="settNav"><img src="img/settings_icon.svg" alt="" height="40vh"></button></li>
                 </ul>
-            </nav>
+            </div>
         </div>
+        
+        
         <div id="main-1">
             <!--change aside to ordered div elements-->
             <aside class="sidebar-1">
                 <!--put in-page navegation here-->
                 <ul>
-                    <li><a>What is ADHD?</a></li>
-                    <li><a>About this Project</a></li>
-                    <li><a>About our Mission</a></li>
+                    <li class="page-nav"><button>What is ADHD?</button></li>
+                    <li class="page-nav"><button>About this Project</button></li>
+                    <li class="page-nav"><button>About our Mission</button></li>
                 </ul>
             </aside>
-            <main class="content-1">
+            <main>
                 <!--put details about ADHD here-->
                 <h2>What Is ADHD?</h2>
                 <p>Attention Deficit and Hyperactivity Disorder (ADHD) is a neurodevelopmental disorder typically, but not always, diagnosed during childhood. Early signs can include excessive daydreaming, forgetfulness, fidgeting, talking too much, and difficulty taking turns. Although it is typical for children to have trouble with these things sometimes, a child with ADHD exhibits these symptoms more frequently than their peers. These symptoms can create difficulties at home, in school, and in their personal lives.</p>
